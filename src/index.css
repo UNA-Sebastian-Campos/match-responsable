@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'IBM Plex Sans', Arial, sans-serif;
+  }
+}
+
+@keyframes vpulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+@keyframes vflash {
+  0% {
+    box-shadow: 0 0 0 4px #2f5a3f;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.voice-listening-ring {
+  position: relative;
+}
+
+.voice-listening-ring::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 2px solid #b6503f;
+  animation: vpulse 1.2s ease-out infinite;
+  pointer-events: none;
+}
+
+.voice-flash {
+  animation: vflash 1.2s ease-out;
+}
